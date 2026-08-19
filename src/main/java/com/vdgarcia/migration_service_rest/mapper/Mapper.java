@@ -43,7 +43,7 @@ public class Mapper {
 
 
 
-    public void updateCliente(ClienteDTO dto, Cliente entity){
+    public static void updateCliente(ClienteDTO dto, Cliente entity){
         if (dto == null || entity == null) return;
 
         entity.setNombre(dto.getNombre());
@@ -68,11 +68,12 @@ public class Mapper {
 
     }
 
-    public static DetallePedidoDTO toDetallePedidoDTO(DetallePedido entity){
-        if (entity==null) return null;
-        return DetallePedidoDTO.builder()
-                .pedido(entity.getPedido().getId())
-                .producto(entity.getProducto().getId())
+    public static DetallePedido toDetallePedido(DetallePedidoDTO dto){
+        if (dto==null) return null;
+        return DetallePedido.builder()
+                .pedido(Pedido.builder().id(dto.getPedido()).build())
+                .producto(Producto.builder().id(dto.getProducto()).build())
+                .Cantidad(dto.getCantidad())
                 .build();
     }
 
@@ -106,13 +107,6 @@ public class Mapper {
     }
 
 
-    public static DetallePedido toDetallePedido(DetallePedidoDTO dto){
-        if (dto==null) return null;
-        return DetallePedido.builder()
-                .pedido(Pedido.builder().id(dto.getPedido()).build())
-                .producto(Producto.builder().id(dto.getProducto()).build())
-                .build();
-    }
 
 
 
@@ -147,6 +141,17 @@ public class Mapper {
         entity.setEstado(dto.getEstado());
         entity.setTotal(dto.getTotal());
         entity.setFecha(dto.getFecha());
+    }
+
+
+    public static DetallePedidoDTO toDetallePedidoDTO(DetallePedido entity){
+        if (entity==null) return null;
+        return DetallePedidoDTO.builder()
+                .id(entity.getId())
+                .pedido(entity.getPedido().getId())
+                .producto(entity.getProducto().getId())
+                .cantidad(entity.getCantidad())
+                .build();
     }
 
 
