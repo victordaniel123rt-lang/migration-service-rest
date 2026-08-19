@@ -6,6 +6,6 @@ import lombok.*;
 @Builder
 public class DetallePedidoDTO {
     private Long producto;
-    private Long detalle;
+    private Long pedido;
 
 }
