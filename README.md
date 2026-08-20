@@ -1,5 +1,8 @@
 # Migration Service REST
 
+![Arquitectura del sistema](docs/mvc.png)
+
+
 ## 📋 Descripción
 
 El presente repositorio es un ejemplo común de una arquitectura por capas, la cual usaremos como ejemplo para migrarla a una arquitectura donde nuestro dominio quede desacoplado de las tecnologías que utilizamos aquí: **SPRING DATA JPA**, **ORACLE DB**, **SPRING**. La idea es obtener un resultado similar a una **arquitectura Hexagonal**.
