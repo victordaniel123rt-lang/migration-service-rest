@@ -1,5 +1,6 @@
 package com.vdgarcia.migration_service_rest.service.inter;
 
+import com.vdgarcia.migration_service_rest.dto.DetallePedidoDTO;
 import com.vdgarcia.migration_service_rest.dto.PedidoDTO;
 
 import java.util.List;
@@ -11,5 +12,6 @@ public interface PedidoService {
     PedidoDTO crear(PedidoDTO dto);
     PedidoDTO actualizar(Long id, PedidoDTO dto);
     PedidoDTO eliminar(Long id);
+    PedidoDTO agregarProductos(DetallePedidoDTO dto);
 
 }

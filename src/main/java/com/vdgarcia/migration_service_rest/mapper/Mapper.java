@@ -59,6 +59,7 @@ public class Mapper {
         List<DetallePedidoDTO> detalles = entity.getDetalles().stream().map(Mapper::toDetallePedidoDTO).toList();
         return ProductoDTO.builder()
                 .id(entity.getId())
+                .precio(entity.getPrecio())
                 .nombre(entity.getNombre())
                 .descripcion(entity.getDescripcion())
                 .stock(entity.getStock())
@@ -80,14 +81,14 @@ public class Mapper {
 
     public static PedidoDTO toPedidoDTO(Pedido entity){
         if (entity==null) return null;
-        List<DetallePedidoDTO> detalles = entity.getDetallePedido().stream().map(Mapper::toDetallePedidoDTO).toList();
+    List<DetallePedidoDTO> detalles = entity.getDetallePedido().stream().map(Mapper::toDetallePedidoDTO).toList();
         return PedidoDTO.builder()
                 .id(entity.getId())
                 .cliente(entity.getCliente().getId())
                 .fecha(entity.getFecha())
                 .total(entity.getTotal())
-                .estado(entity.getEstado())
                 .detalles(detalles)
+                .estado(entity.getEstado())
                 .build();
     }
 
@@ -97,6 +98,7 @@ public class Mapper {
         List<DetallePedido> detalles = dto.getDetalles().stream().map(Mapper::toDetallePedido).toList();
         return Producto.builder()
                 .id(dto.getId())
+                .precio(dto.getPrecio())
                 .nombre(dto.getNombre())
                 .descripcion(dto.getDescripcion())
                 .stock(dto.getStock())
